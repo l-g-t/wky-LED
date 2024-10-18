@@ -1,0 +1,14 @@
+#玩客云刷入ARMBIAN系统后，可以用下面的脚本控制面板三色LED的亮灭颜色，让前面板灯不停的红绿蓝闪烁。
+#!/bin/bash -e
+while true
+  do
+        echo 0 > /sys/class/leds/onecloud\:blue\:alive/brightness
+        echo 1 > /sys/class/leds/onecloud\:red\:alive/brightness
+        sleep 1.2
+        echo 0 > /sys/class/leds/onecloud\:red\:alive/brightness
+        echo 1 > /sys/class/leds/onecloud\:green\:alive/brightness
+        sleep 1.2
+        echo 0 > /sys/class/leds/onecloud\:green\:alive/brightness
+        echo 1 > /sys/class/leds/onecloud\:blue\:alive/brightness
+        sleep 1.2
+  done
